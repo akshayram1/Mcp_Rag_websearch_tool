@@ -176,16 +176,14 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
                 <div class="bg-white rounded-lg p-6 shadow-lg">
                     <h3 class="text-xl font-semibold mb-4 text-gray-800">Component Architecture</h3>
-                    <img src="flow.jpeg"
-                        alt="System Architecture Diagram" class="architecture-img w-full h-auto">
+                    <img src="flow.jpeg" alt="System Architecture Diagram" class="architecture-img w-full h-auto">
                     <p class="text-sm text-gray-600 mt-3 text-center">Frontend, Application Logic, and Data Processing
                         Flow</p>
                 </div>
 
                 <div class="bg-white rounded-lg p-6 shadow-lg">
                     <h3 class="text-xl font-semibold mb-4 text-gray-800">Layered Architecture</h3>
-                    <img src="architech.png"
-                        alt="Layered Architecture Diagram" class="architecture-img w-full h-auto">
+                    <img src="architech.png" alt="Layered Architecture Diagram" class="architecture-img w-full h-auto">
                     <p class="text-sm text-gray-600 mt-3 text-center">User Interface, Processing Layers, and Service
                         Integration</p>
                 </div>
@@ -593,8 +591,8 @@ mcp = <span class="function">FastMCP</span>(
                         Step 1: Environment Setup
                     </h3>
                     <pre><code><span class="comment"># Clone the repository</span>
-git clone https://github.com/your-repo/intellisearch-rag
-cd intellisearch-rag
+git clone https://github.com/akshayram1/Mcp_Rag_websearch_tool
+cd Mcp_Rag_websearch_tool
 
 <span class="comment"># Create virtual environment</span>
 python -m venv venv
@@ -886,6 +884,65 @@ streamlit run app.py
                 </div>
             </div>
         </section>
+
+        <!-- MCP vs RAG Comparison -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">
+                <i class="fas fa-balance-scale text-blue-500 mr-3"></i>
+                MCP Protocol vs RAG: Comparison
+            </h2>
+            <div class="bg-white rounded-lg p-8 shadow-lg overflow-x-auto">
+                <table class="min-w-full text-sm text-left border border-gray-200">
+                    <thead>
+                        <tr class="bg-blue-50">
+                            <th class="py-3 px-4 font-semibold text-gray-700 border-b">Feature</th>
+                            <th class="py-3 px-4 font-semibold text-gray-700 border-b">MCP Protocol</th>
+                            <th class="py-3 px-4 font-semibold text-gray-700 border-b">RAG (Retrieval Augmented
+                                Generation)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="py-2 px-4 border-b">Purpose</td>
+                            <td class="py-2 px-4 border-b">Standardizes communication between AI agents and tools</td>
+                            <td class="py-2 px-4 border-b">Combines retrieval of external knowledge with generative
+                                models</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="py-2 px-4 border-b">Core Functionality</td>
+                            <td class="py-2 px-4 border-b">Defines message formats, tool APIs, and agent orchestration
+                            </td>
+                            <td class="py-2 px-4 border-b">Retrieves relevant documents and augments LLM responses</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-4 border-b">Architecture</td>
+                            <td class="py-2 px-4 border-b">Protocol layer for interoperability and modularity</td>
+                            <td class="py-2 px-4 border-b">System design pattern for knowledge-intensive tasks</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="py-2 px-4 border-b">Scalability</td>
+                            <td class="py-2 px-4 border-b">Highly scalable, supports distributed agent networks</td>
+                            <td class="py-2 px-4 border-b">Scalable with vector databases and retrieval systems</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-4 border-b">Integration</td>
+                            <td class="py-2 px-4 border-b">Integrates with any tool or agent supporting MCP</td>
+                            <td class="py-2 px-4 border-b">Integrates with search APIs, vector DBs, and LLMs</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="py-2 px-4 border-b">Use Case</td>
+                            <td class="py-2 px-4 border-b">Multi-agent orchestration, tool interoperability</td>
+                            <td class="py-2 px-4 border-b">Knowledge retrieval, context-aware generation</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-4 border-b">Example</td>
+                            <td class="py-2 px-4 border-b">LangChain MCP adapters, FastMCP server</td>
+                            <td class="py-2 px-4 border-b">RAG with LangChain, FAISS, and Ollama</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
     </div>
 
     <!-- Footer -->
@@ -932,47 +989,51 @@ streamlit run app.py
                 plugins: {
                     legend: {
                         position: 'top',
+                    },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false,
                     }
                 },
+                interaction: {
+                    mode: 'index',
+                    intersect: false
+                },
                 scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Time (Weeks)',
+                            color: '#333',
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            },
+                            padding: { top: 10, bottom: 10 }
+                        },
+                        grid: {
+                            color: '#e5e7eb',
+                            lineWidth: 1
+                        }
+                    },
                     y: {
-                        beginAtZero: true
+                        title: {
+                            display: true,
+                            text: 'Metrics',
+                            color: '#333',
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            },
+                            padding: { top: 10, bottom: 10 }
+                        },
+                        grid: {
+                            color: '#e5e7eb',
+                            lineWidth: 1
+                        }
                     }
                 }
             }
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Add animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function (entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all feature cards
-        document.querySelectorAll('.feature-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(card);
         });
     </script>
 </body>
